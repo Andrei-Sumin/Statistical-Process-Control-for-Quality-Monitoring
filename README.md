@@ -1,1 +1,1 @@
-# Statistical-Process-Control-for-Quality-Monitoring-in-3D-Printing
+# Statistical Process Control for Quality Monitoring in 3D Printing
