@@ -1,12 +1,11 @@
-
 <img src="Figs/Logo.png" alt="Logo" width="700">
-
 
 # Statistical Process Control for Quality Monitoring
 
 ## Project Overview
 
 This project is part of the **Quality Data Analysis** course at Politecnico di Milano. The primary objective is to design and evaluate statistical methods for detecting defects in 3D-printed Voronoi filters. The study focuses on quality control through image analysis for a simulated production process.
+
 
 
 ## Data Acquisition
@@ -28,32 +27,35 @@ In the second phase, images of parts with defects were introduced into the datas
 
 
 
-## Objectives
+## Objective
 
-1. Implement **Statistical Process Control (SPC)** charts to monitor quality and identify anomalies in real-time.
-2. Validate the performance of the SPC charts using a manually acquired list of actual faulty parts.
+To implement **Statistical Process Control (SPC)** charts to monitor quality and identify anomalies in real-time.
 
 
 
 ## Methodology
 
-### Phase 1: Establishing Baseline Control
-- Data from defect-free parts was used to develop SPC techniques.
-- Key variables such as area, perimeter, and number of voids were analyzed.
-- **Principal Component Analysis (PCA)** was applied to reduce noise and highlight patterns in the data.
+### Phase 1: Design of the Control Charts
+- Data from defect-free parts was restructured, analyzed and modeled
+- Principal Component Analysis (PCA) was applied to reduce noise and highlight patterns in the data.
+- Individual and multivariate SPC Control Charts were developed.
 
-### Phase 2: Fault Detection
+### Phase 2: Implementaiton of the Control Charts
+- Data acquised was modelled in the same way as Phase 1 data.
 - Control charts developed in Phase 1 were applied to a dataset with faulty parts.
 - Faulty parts were identified based on control limits derived from the SPC charts.
 
 
 
-## Statistical Analysis
+## Statistical Analysis Techniques
 
-The analysis utilized the following techniques:
-- **Hotelling's T² control chart** for multivariate analysis.
-- **Individual-Moving Range (I-MR)** charts for monitoring key variables and PCA scores.
+**Data Modeling** Techniques:
+- **ARIMA modeling** to adress observed correlation.
 - **Seasonal ARIMA modeling** to address observed periodicity in specific variables.
+
+**Statistical Process Control** Techniques:
+- **Individual-Moving Range (I-MR)** charts for monitoring PCA scores.
+- **Hotelling's T² control chart** for multivariate analysis of original data and PCA scores.
 
 
 
@@ -62,6 +64,7 @@ The analysis utilized the following techniques:
 - Control charts successfully identified faulty parts in the Phase 2 dataset.
 - PCA and Hotelling's T² control charts provided robust fault detection capabilities, outperforming traditional univariate methods.
 - The methodology established a reliable framework for real-time quality monitoring in 3D printing applications.
+
 
 
 ## File Structure
