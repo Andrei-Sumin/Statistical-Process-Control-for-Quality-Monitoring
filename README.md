@@ -74,6 +74,8 @@ The project consists of the following main files and folders:
 - `dataset_phase1/`: A folder containing data for Phase 1. It contains waw images collected during Phase 1 and a folder `Result` with the processed data from Phase 1. Inside this folder there is also a file `image_statistics.csv` - CSV file containing the the results of image analysis function for Phase 1 data.
 - `dataset_phase2/`: A folder containing data for Phase 2. It contains waw images collected during Phase 2 and a folder `Result_phase2` with the processed data from Phase 2. Inside this folder there is also a file `image_statistics_phase2.csv` - CSV file containing the the results of image analysis function for Phase 2 data.
 
+
+
 ## Repository Structure
 
 The project consists of the following main files and folders:
@@ -90,3 +92,64 @@ The project consists of the following main files and folders:
   - `pictures`: Raw images collected during Phase 2.
   - `Result_phase2/`: A folder containing processed data from Phase 2.
   - `image_statistics_phase2.csv`: CSV file containing the results of the image analysis function for Phase 2 data.
+
+---
+  
+## Step-by-Step Explanation of the Project Process
+
+
+
+### 1.1 Image Analysis and Dataset Creation
+- The raw images of trays were processed using `image_analysis_function.py`. This script transformed the images into CSV datasets containing numerical and characteristic information about part parameters (e.g., area, perimeter, voids, etc.).
+- Separate datasets were created for Phase 1 (defect-free parts) and Phase 2 (parts with faults):
+  - **Phase 1 Data**: `dataset_phase1/Results` contains the processed images and the processed CSV file (`image_statistics.csv`).
+  - **Phase 2 Data**: `dataset_phase2/Results_Phase2` contains the processed images and the processed CSV file (`image_statistics_phase2.csv`). Acquisition of this data took place after Phase 1 was over.
+
+### 1.2 Feature Engineering
+- From the raw data, cumulative parameters were calculated to simplify and standardize the dataset. These included:
+  - **Total Area of Voids**
+  - **Base Perimeter** (Total Perimeter minus Void Perimeter)
+  - **Voids Perimeter**
+  - **Number of Voids**
+
+
+
+## 2. Phase 1: Designing Control Charts
+
+### 2.1 Baseline Model Development
+- **Defect-Free Data**: Data from defect-free parts was used to establish baseline control charts.
+- **ARIMA Modeling**: ARIMA models were applied to variables (e.g., void perimeter, base perimeter) to address any observed autocorrelations and in the data.
+- **Seasonal Adjustments**: Seasonal ARIMA models were used to capture periodic behavior introduced by the physical layout of the trays (e.g., the position of parts affecting angular resolution).
+
+### 2.2 Principal Component Analysis (PCA)
+- PCA was performed to reduce noise and highlight patterns in the data.
+- The first three principal components were selected, capturing 95% of the variance in the dataset.
+- PCA scores were used as inputs for control charts.
+
+### 2.3 Statistical Process Control Charts
+- **Individual-Moving Range (I-MR) Charts**: Used to monitor the individual PCA scores for anomalies.
+- **Hotelling's T² Control Chart**: Applied to both original variables and PCA scores for multivariate analysis.
+- Control limits were calculated to establish the baseline for detecting faulty parts.
+
+
+
+## 3. Phase 2: Implementation of Control Charts
+
+### 3.1 Faulty Data Analysis
+- The datasets from Phase 2 were modeled using the same preprocessing steps as in Phase 1.
+- The control charts developed in Phase 1 were applied to the new data.
+
+### 3.2 Fault Detection
+- Faulty parts were identified by monitoring PCA scores and original variables against the control limits.
+- Out-of-control points were flagged as anomalies, indicating potentially faulty parts.
+
+
+
+## 4. Validation
+
+### 4.1 Comparison with Manually Identified Faults
+- The control chart results were validated against a manually created list of known faulty parts.
+- Performance Metrics: Confusion matrices were evaluated to assess the charts' effectiveness.
+
+### 4.2 Observations
+- Hotelling's T² control charts based on non-transformed variables provided the best results.
