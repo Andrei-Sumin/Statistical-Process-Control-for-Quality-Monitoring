@@ -81,8 +81,8 @@ The project consists of the following main files and folders:
 The project consists of the following main files and folders:
 
 - `CSV.ipynb`: The main analysis file written as a Jupyter Notebook.
-- `image_analysis_function.py`: A Python function provided by the Department of Mechanical Engineering to transform images into CSV datasets containing numerical and characteristic information about part parameters.
-- `qda.py`: A set of useful functions for Statistical Process Control (SPC), provided by the Department of Mechanical Engineering.
+- `image_analysis_function.py`: A Python function provided by the Department of Mechanical Engineering to transform images into CSV datasets containing numerical and characteristic information about part parameters. Provided by the Department of Mechanical Engineering, Politecnico di Milano.
+- `qda.py`: A set of useful functions for Statistical Process Control (SPC), provided by the Department of Mechanical Engineering, Politecnico di Milano.
 - `Figs/`: A folder containing figures used in the analysis report and README.
 - `dataset_phase1/`: A folder containing data for Phase 1.
   - `pictures`: Raw images collected during Phase 1.
