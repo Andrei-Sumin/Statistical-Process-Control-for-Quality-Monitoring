@@ -153,3 +153,11 @@ The project consists of the following main files and folders:
 
 ### 4.2 Observations
 - Hotelling's T² control charts based on non-transformed variables provided the best results.
+
+
+
+<br> 
+<br>
+
+### License:
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
